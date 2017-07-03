@@ -17,6 +17,7 @@ export default function (data, mask){
   }
 
   let text = '';
+  let raw = '';
 
   // Adds a char offset to allow testing on optional values
   var cOffset = 0;
@@ -33,6 +34,7 @@ export default function (data, mask){
       default : data = data.replace(m, '')
     }
   }
+  raw = data
   for (let i = 0, x = 1; x && i < mask.length; ++i) {
     // Uses the optional mask character offset
     let c = data.charAt(i - cOffset);
@@ -57,5 +59,5 @@ export default function (data, mask){
         break;
     }
   }
-  return text;
+  return {text, raw};
 }

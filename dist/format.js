@@ -14,6 +14,7 @@ exports.default = function (data, mask) {
   }
 
   var text = '';
+  var raw = '';
 
   var cOffset = 0;
 
@@ -34,6 +35,7 @@ exports.default = function (data, mask) {
         data = data.replace(m, '');
     }
   }
+  raw = data;
   for (var _i = 0, x = 1; x && _i < mask.length; ++_i) {
     var c = data.charAt(_i - cOffset);
     var _m = mask.charAt(_i);
@@ -72,5 +74,5 @@ exports.default = function (data, mask) {
         break;
     }
   }
-  return text;
+  return { text: text, raw: raw };
 };

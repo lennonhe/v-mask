@@ -50,7 +50,9 @@ function updateValue(el) {
   el.dataset.raw = raw;
 
   if (force || value && value !== previousValue && value.length > previousValue.length) {
-    el.value = (0, _format2.default)(value, mask);
+    var result = (0, _format2.default)(value, mask);
+    el.value = result.text;
+    el.dataset.raw = result.raw;
     (0, _utils.trigger)(el, 'input');
   }
 

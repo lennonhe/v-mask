@@ -12,7 +12,9 @@ function updateValue (el, force = false) {
   el.dataset.raw = raw;
 
   if(force || (value && value !== previousValue && value.length > previousValue.length)) {
-    el.value = format(value, mask);
+    let result = format(value, mask);
+    el.value = result.text
+    el.dataset.raw = result.raw
     trigger(el, 'input')
   }
 
