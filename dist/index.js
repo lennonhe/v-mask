@@ -42,8 +42,12 @@ function updateValue(el) {
       _el$dataset = el.dataset,
       _el$dataset$previousV = _el$dataset.previousValue,
       previousValue = _el$dataset$previousV === undefined ? "" : _el$dataset$previousV,
-      mask = _el$dataset.mask;
+      mask = _el$dataset.mask,
+      _el$dataset$raw = _el$dataset.raw,
+      raw = _el$dataset$raw === undefined ? "" : _el$dataset$raw;
 
+
+  el.dataset.raw = raw;
 
   if (force || value && value !== previousValue && value.length > previousValue.length) {
     el.value = (0, _format2.default)(value, mask);
