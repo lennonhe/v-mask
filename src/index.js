@@ -7,9 +7,9 @@ import { trigger } from './utils'
  * @param {Boolean}          force
  */
 function updateValue (el, force = false) {
-  let {value, dataset: {previousValue = "", mask } } = el;
+  let {value, dataset: {previousValue = "", mask, raw = "" } } = el;
 
-  el.dataset.raw = value
+  el.dataset.raw = raw;
 
   if(force || (value && value !== previousValue && value.length > previousValue.length)) {
     el.value = format(value, mask);
