@@ -9,6 +9,8 @@ import { trigger } from './utils'
 function updateValue (el, force = false) {
   let {value, dataset: {previousValue = "", mask } } = el;
 
+  el.dataset.raw = value
+
   if(force || (value && value !== previousValue && value.length > previousValue.length)) {
     el.value = format(value, mask);
     trigger(el, 'input')
@@ -72,4 +74,3 @@ export default function (Vue) {
     }
   });
 };
-
